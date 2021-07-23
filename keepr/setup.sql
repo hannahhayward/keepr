@@ -8,6 +8,8 @@ CREATE TABLE keeps (
     views INT NOT NULL COMMENT 'keep views',
     shares INT NOT NULL COMMENT 'keep shares',
     keeps INT NOT NULL COMMENT 'keeps',
+    vaultId INT NOT NULL COMMENT 'FK: vault id',
+    FOREIGN KEY(vaultId) REFERENCES vaults(id) ON DELETE CASCADE,
     FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
 ) default charset utf8 comment '';
 CREATE TABLE accounts (  
@@ -28,3 +30,4 @@ CREATE TABLE vaults (
     isPrivate TINYINT COMMENT 'privacy',
     FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
 ) default charset utf8 comment '';
+DROP Table vaults;
