@@ -3,8 +3,8 @@ CREATE TABLE keeps (
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'created at',
     updateAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'updated at',
     creatorId VARCHAR(255) COMMENT 'Fk: Profile id',
-    Description VARCHAR(255) COMMENT 'keep description',
-    imgUrl VARCHAR(255) COMMENT 'keep image url',
+    description VARCHAR(255) COMMENT 'keep description',
+    img VARCHAR(255) COMMENT 'keep image url',
     views INT NOT NULL COMMENT 'keep views',
     shares INT NOT NULL COMMENT 'keep shares',
     keeps INT NOT NULL COMMENT 'keeps',
@@ -30,5 +30,5 @@ CREATE TABLE vaults (
     isPrivate TINYINT COMMENT 'privacy',
     FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
 ) default charset utf8 comment '';
-DROP Table vaults;
+DROP Table keeps;
 SELECT * FROM vaults;

@@ -14,20 +14,7 @@ namespace keepr.Repositories
     {
       _db = db;
     }
-    // public List<Vault> GetAllVaults()
-    // {
-    //     string sql = @"
-    //     SELECT
-    //     v.*,
-    //     a.*
-    //     FROM vaults v;
-    //     JOIN accounts a ON v.creatorId = a.id;";
-    //     return _db.Query<Vault, Profile, Vault>(sql, (v, p)=>
-    //     {
-    //         v.Creator = p;
-    //         return v;
-    //     }, splitOn: "id").ToList(); 
-    // }
+
     internal int CreateVault(Vault newVault)
     {
         string sql = @"
