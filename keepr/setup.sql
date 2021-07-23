@@ -31,3 +31,4 @@ CREATE TABLE vaults (
     FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
 ) default charset utf8 comment '';
 DROP Table vaults;
+SELECT * FROM vaults;
