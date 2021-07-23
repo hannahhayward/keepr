@@ -14,12 +14,12 @@ namespace keepr.Repositories
     {
       _db = db;
     }
-    internal List<Keep> GetAllKeeps()
-    {
-    string sql = @"
-    SELECT 
-    k.*,
-    FROM keeps k;";
-    }
+    // internal List<Keep> GetAllKeeps()
+    // {
+    // string sql = @"
+    // SELECT 
+    // k.*,
+    // FROM keeps k;";
+    // }
   }
 }
