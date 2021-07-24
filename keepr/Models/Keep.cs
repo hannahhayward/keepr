@@ -12,7 +12,7 @@ namespace keepr.Models
   public string Img {get;set;}
   public int Views {get;set;}
   public int Shares {get;set;}
+  public int Keeps {get;set;}
   public Profile Creator {get;set;}
-  public Vault Vault {get;set;}
 }
 }

@@ -1,16 +1,12 @@
 CREATE TABLE keeps (  
     id int NOT NULL primary key AUTO_INCREMENT comment 'primary key',
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'created at',
-    updateAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'updated at',
-    creatorId VARCHAR(255) COMMENT 'Fk: Profile id',
+    creatorId VARCHAR(255) NOT NULL COMMENT ' Profile id',
+    name VARCHAR(255) NOT NULL COMMENT 'keep name',
     description VARCHAR(255) COMMENT 'keep description',
     img VARCHAR(255) COMMENT 'keep image url',
-    views INT NOT NULL COMMENT 'keep views',
-    shares INT NOT NULL COMMENT 'keep shares',
-    keeps INT NOT NULL COMMENT 'keeps',
-    vaultId INT NOT NULL COMMENT 'FK: vault id',
-    FOREIGN KEY(vaultId) REFERENCES vaults(id) ON DELETE CASCADE,
-    FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
+    views INT COMMENT 'keep views',
+    shares INT COMMENT 'keep shares',
+    keeps INT COMMENT 'keeps'
 ) default charset utf8 comment '';
 CREATE TABLE accounts (  
     id VARCHAR(255) NOT NULL primary key comment 'primary key',
@@ -30,5 +26,5 @@ CREATE TABLE vaults (
     isPrivate TINYINT COMMENT 'privacy',
     FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
 ) default charset utf8 comment '';
-DROP Table keeps;
-SELECT * FROM vaults;
+DROP Table accounts;
+SELECT * FROM keeps;

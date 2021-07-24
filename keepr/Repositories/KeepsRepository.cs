@@ -38,8 +38,8 @@ namespace keepr.Repositories
     internal int CreateKeep(Keep newKeep)
     {
       string sql = @"
-      INSERT INTO keeps(creatorId, name, description, img, views, shares, keeps)
-      VALUES (@CreatorId, @Name, @Description, @Img, @Views, @Shares, @Keeps);
+      INSERT INTO keeps(name,description,img, views,shares,keeps,creatorId)
+      VALUES (@Name, @Description, @Img, 0, 0, 0, @creatorId);
       SELECT LAST_INSERT_ID();";
       return _db.ExecuteScalar<int>(sql, newKeep);
     }

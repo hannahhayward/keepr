@@ -44,13 +44,13 @@ namespace keepr.Controllers
     }
     [HttpPost]
     [Authorize]
-    async public Task<ActionResult<Keep>> Create([FromBody] Keep newKeep)
+    public async Task<ActionResult<Keep>> Create([FromBody] Keep newKeep)
     {
         try
         {
-            Account account = await HttpContext.GetUserInfoAsync<Account>();
-            newKeep.CreatorId = account.Id;
-            return Ok(_ks.Create(newKeep));
+            Profile profile = await HttpContext.GetUserInfoAsync<Profile>();
+            newKeep.CreatorId = profile.Id;
+             return Ok(_ks.Create(newKeep));
         }
         catch (System.Exception e)
         {
@@ -66,6 +66,22 @@ namespace keepr.Controllers
         {
             Account account = await HttpContext.GetUserInfoAsync<Account>();
             return Ok(_ks.Delete(id, account.Id));
+        }
+        catch (System.Exception e)
+        {
+            
+            return BadRequest(e.Message);
+        }
+    }
+    [HttpPut("{id}")]
+    [Authorize]
+    async public Task<ActionResult<Keep>> Update(int id, [FromBody] Keep newKeep)
+    {
+        try
+        {
+            Account account = await HttpContext.GetUserInfoAsync<Account>();
+            newKeep.CreatorId = account.Id;
+            return Ok(_ks.Update(newKeep));
         }
         catch (System.Exception e)
         {
